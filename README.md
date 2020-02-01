@@ -1,6 +1,4 @@
-# The Vacuum Of Space
-
-***VACM***
+# V.A.C.M.
 ***VACUUM ANOMALY CLEANING MACHINE***
 
 A series of robots made to remove dangerous material using its built-in anomalous hyper-vacuum creation engine.
