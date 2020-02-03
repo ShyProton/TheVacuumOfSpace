@@ -6,6 +6,7 @@ using UnityEngine;
 public class VACMovement : MonoBehaviour
 {
     public Rigidbody vacm;
+    public Transform camera;
     public float speed = 100f;
 
     private int[] userInput = new int[4];
@@ -26,11 +27,20 @@ public class VACMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        int fwdbck = userInput[0] - userInput[2];
-        int rgtlft = userInput[3] - userInput[1];
+        float fwdbck = userInput[0] - userInput[2];
+        float rgtlft = userInput[3] - userInput[1];
 
         float diagLim = fwdbck != 0 && rgtlft != 0 ? (float)Math.Sin(45 * Math.PI / 180) : 1;
 
-        vacm.AddForce(rgtlft * speed * diagLim * Time.deltaTime, 0, fwdbck * speed * diagLim * Time.deltaTime, ForceMode.VelocityChange);
+        Vector3 move = camera.right * rgtlft + camera.forward * fwdbck;
+
+        move *= diagLim;
+        move.y = 0.0f;
+
+        if(fwdbck != 0 || rgtlft != 0)
+        {
+            vacm.AddForce(move, ForceMode.VelocityChange);
+        }
+        
     }
 }
