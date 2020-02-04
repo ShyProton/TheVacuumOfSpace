@@ -7,14 +7,17 @@ public class VACMovement : MonoBehaviour
 {
     public Rigidbody vacm;
     public Transform camera;
+    public Transform bracket;
     public float speed = 100f;
 
     private int[] userInput = new int[4];
     private string keys = "wasd";
+    private Vector3 moveVector;
+    
 
     void Start()
     {
-        Debug.Log("V.A.C.M. INITIALIZING");
+        Debug.Log("V.A.C.M. INITIALIZING");   
     }
 
     void Update()
@@ -32,15 +35,23 @@ public class VACMovement : MonoBehaviour
 
         float diagLim = fwdbck != 0 && rgtlft != 0 ? (float)Math.Sin(45 * Math.PI / 180) : 1;
 
-        Vector3 move = camera.right * rgtlft + camera.forward * fwdbck;
+        moveVector = (camera.right * rgtlft + camera.forward * fwdbck) * diagLim;
+        moveVector.y = 0.0f;
 
-        move *= diagLim;
-        move.y = 0.0f;
+        vacm.AddForce(moveVector, ForceMode.VelocityChange);
 
-        if(fwdbck != 0 || rgtlft != 0)
+    }
+
+    void LateUpdate()
+    {
+        Quaternion rotation = Quaternion.LookRotation(vacm.velocity.normalized);
+
+        if(rotation.y != 0)
         {
-            vacm.AddForce(move, ForceMode.VelocityChange);
+            bracket.rotation = rotation;
         }
+        
+
         
     }
 }
