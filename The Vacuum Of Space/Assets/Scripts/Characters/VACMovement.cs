@@ -12,12 +12,11 @@ public class VACMovement : MonoBehaviour
 
     private int[] userInput = new int[4];
     private string keys = "wasd";
-    private Vector3 moveVector;
-    
+    private Vector3 moveVector;    
 
     void Start()
     {
-        Debug.Log("V.A.C.M. INITIALIZING");   
+        Debug.Log("V.A.C.M. INITIALIZING");
     }
 
     void Update()
@@ -35,11 +34,16 @@ public class VACMovement : MonoBehaviour
 
         float diagLim = fwdbck != 0 && rgtlft != 0 ? (float)Math.Sin(45 * Math.PI / 180) : 1;
 
-        moveVector = (camera.right * rgtlft + camera.forward * fwdbck) * diagLim;
+        moveVector = (camera.right * rgtlft + camera.forward * fwdbck) * diagLim * speed;
         moveVector.y = 0.0f;
 
-        vacm.AddForce(moveVector, ForceMode.VelocityChange);
-
+        if(moveVector != Vector3.zero)
+        {
+            vacm.AddForce(-vacm.velocity, ForceMode.VelocityChange);
+            vacm.AddForce(moveVector, ForceMode.VelocityChange);
+        }
+        
+        Debug.Log(moveVector.x + moveVector.z);
     }
 
     void LateUpdate()
@@ -50,8 +54,5 @@ public class VACMovement : MonoBehaviour
         {
             bracket.rotation = rotation;
         }
-        
-
-        
     }
 }
