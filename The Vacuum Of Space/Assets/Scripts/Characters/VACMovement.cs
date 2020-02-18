@@ -7,7 +7,7 @@ public class VACMovement : MonoBehaviour
 {
     public Rigidbody vacm;
     public Transform camera;
-    public Transform bracket;
+    public Transform vacBase;
     public float speed = 100f;
 
     private int[] userInput = new int[4];
@@ -41,9 +41,7 @@ public class VACMovement : MonoBehaviour
         {
             vacm.AddForce(-vacm.velocity, ForceMode.VelocityChange);
             vacm.AddForce(moveVector, ForceMode.VelocityChange);
-        }
-        
-        Debug.Log(moveVector.x + moveVector.z);
+        }     
     }
 
     void LateUpdate()
@@ -52,7 +50,7 @@ public class VACMovement : MonoBehaviour
 
         if(rotation.y != 0)
         {
-            bracket.rotation = rotation;
+            vacBase.rotation = rotation;
         }
     }
 }
