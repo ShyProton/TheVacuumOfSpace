@@ -48,9 +48,13 @@ public class VACMovement : MonoBehaviour
     {
         Quaternion rotation = Quaternion.LookRotation(vacm.velocity.normalized);
 
+        
+
+        
         if(rotation.y != 0)
         {
             vacBase.rotation = rotation;
+            Debug.Log(rotation.y);
         }
     }
 }
