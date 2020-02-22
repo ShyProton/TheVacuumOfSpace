@@ -43,7 +43,7 @@ public class VACMovement : MonoBehaviour
         {
             vacm.AddForce(-vacm.velocity, ForceMode.VelocityChange);
             vacm.AddForce(moveVector, ForceMode.VelocityChange);
-        }     
+        }
     }
 
     void LateUpdate()
