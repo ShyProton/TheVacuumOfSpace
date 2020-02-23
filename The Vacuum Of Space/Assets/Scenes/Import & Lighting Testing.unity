@@ -1696,10 +1696,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vacimation: {fileID: 3006769166496148190}
-  blackHole: {fileID: 1016493354}
+  blackHole: {fileID: 1038499614769868980}
   capsuleBase: {fileID: 1038499614769868980}
   mainCam: {fileID: 77302495}
-  holeAffectAngle: 60
   capsuleRotation: 20
 --- !u!23 &3126772043131309312
 MeshRenderer:
