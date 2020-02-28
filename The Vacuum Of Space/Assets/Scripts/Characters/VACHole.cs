@@ -8,17 +8,14 @@ public class VACHole : MonoBehaviour
     public Transform blackHole;
     public Transform capsuleBase;
     public Transform mainCam;
-    public float holeAffectAngle;
     public float capsuleRotation = 20f;
 
     private bool mouseClicked;
     private GameObject[] affectedObjs;
-    private float holeAffectVal;
 
     void Start()
     {
         affectedObjs = GameObject.FindGameObjectsWithTag("VACHole");
-        holeAffectVal = Mathf.Cos(holeAffectAngle * Mathf.Deg2Rad);
     }
 
     void Update()
@@ -33,14 +30,8 @@ public class VACHole : MonoBehaviour
         {
             foreach (GameObject g in affectedObjs)
             {
-                Vector3 heading = g.GetComponent<Transform>().position - blackHole.position;
-                float dot = Vector3.Dot(g.GetComponent<Transform>().forward, heading);
-
-                if(dot > 0)
-                {
-                    Vector3 direction = blackHole.transform.position - g.transform.position;
-                    g.GetComponent<Rigidbody>().AddForce(direction.normalized * Time.deltaTime * 1000);
-                }
+                Vector3 direction = blackHole.transform.position - g.transform.position;
+                g.GetComponent<Rigidbody>().AddForce(direction.normalized * Time.deltaTime * 1000);
             }
         } 
     }
