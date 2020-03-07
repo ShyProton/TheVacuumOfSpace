@@ -7,41 +7,68 @@ public class VACHole : MonoBehaviour
     public Animator vacimation;
     public Transform blackHole;
     public Transform capsuleBase;
+    public Transform vacmHead;
     public Transform mainCam;
     public float capsuleRotation = 20f;
+    public float holeStrength = 2000f;
+    public float castRadius = 3f;
+    public float castDistance = 10f;
+    public LayerMask layerMask;
 
     private bool mouseClicked;
-    private GameObject[] affectedObjs;
-
-    void Start()
-    {
-        affectedObjs = GameObject.FindGameObjectsWithTag("VACHole");
-    }
+    private Vector3 castOrigin;
+    private Vector3 castDirection;
+    private float objectDistance;
+    public GameObject affectedObject;
 
     void Update()
     {
         mouseClicked = Input.GetMouseButton(0);
-        if (mouseClicked) vacimation.SetTrigger("MouseClicked"); else vacimation.ResetTrigger("MouseClicked");
+
+        if (mouseClicked)
+        {
+            vacimation.SetTrigger("MouseClicked");
+            Quaternion capQuat = Quaternion.Slerp(capsuleBase.rotation, mainCam.rotation, capsuleRotation * Time.deltaTime);
+            Quaternion headQuat = Quaternion.Slerp(vacmHead.rotation, mainCam.rotation, VACMovement.headRotation * Time.deltaTime);
+            capsuleBase.rotation = Quaternion.Euler(0, capQuat.eulerAngles.y, 0);
+            vacmHead.rotation = Quaternion.Euler(0, headQuat.eulerAngles.y, 0);
+        } else
+        {
+            vacimation.ResetTrigger("MouseClicked");
+        }
     }
 
     void FixedUpdate()
     {
         if(mouseClicked)
         {
-            foreach (GameObject g in affectedObjs)
+            RaycastHit hit;
+
+            castOrigin = blackHole.position;
+            castDirection = blackHole.forward;
+
+            if (Physics.SphereCast(castOrigin, castRadius, castDirection, out hit, castDistance, layerMask, QueryTriggerInteraction.UseGlobal))
             {
-                Vector3 direction = blackHole.transform.position - g.transform.position;
-                g.GetComponent<Rigidbody>().AddForce(direction.normalized * Time.deltaTime * 1000);
+                affectedObject = hit.transform.gameObject;
+                objectDistance = hit.distance;
+            } else
+            {
+                objectDistance = castDistance;
+                affectedObject = null;
             }
-        } 
+
+            if(affectedObject.tag == "VACHole")
+            {
+                Vector3 forceDirection = blackHole.position - affectedObject.GetComponent<Transform>().position;
+                affectedObject.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * holeStrength * Time.deltaTime);
+            }
+        }
     }
 
-    void LateUpdate()
+    void OnDrawGizmosSelected()
     {
-        if(mouseClicked)
-        {
-            float angle = Quaternion.Slerp(capsuleBase.rotation, mainCam.rotation, capsuleRotation * Time.deltaTime).eulerAngles.y;
-            capsuleBase.rotation = Quaternion.Euler(0, angle, 0);
-        }
+        Gizmos.color = Color.red;
+        Debug.DrawLine(castOrigin, castOrigin + castDirection * objectDistance);
+        Gizmos.DrawWireSphere(castOrigin + castDirection * objectDistance, castRadius);
     }
 }
