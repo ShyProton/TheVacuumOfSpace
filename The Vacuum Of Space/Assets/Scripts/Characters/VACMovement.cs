@@ -5,19 +5,17 @@ using UnityEngine;
 
 public class VACMovement : MonoBehaviour
 {
-    public static float headRotation = 10f;
-
     public Rigidbody vacm;
     public Transform mainCam;
-    public Transform vacBase;
-    public Transform vacHead;
+
     public float speed = 100f;
     public float baseRotation = 20f;
 
+    private Vector3 moveVector;
+
     private int[] userInput = new int[4];
     private string keys = "wasd";
-    private Vector3 moveVector;
-    private Quaternion baseQuaternion = Quaternion.Euler(0, 0, 0);
+    
 
     void Start()
     {
@@ -31,12 +29,7 @@ public class VACMovement : MonoBehaviour
             userInput[i] = Input.GetKey(keys[i].ToString()) ? 1 : 0;
         }
 
-        if (moveVector != Vector3.zero)
-        {
-            baseQuaternion = Quaternion.LookRotation(vacm.velocity.normalized);
-            vacBase.rotation = Quaternion.Slerp(vacBase.rotation, baseQuaternion, baseRotation * Time.deltaTime);
-            vacHead.rotation = Input.GetMouseButton(0) ? vacHead.rotation : Quaternion.Slerp(vacHead.rotation, baseQuaternion, headRotation * Time.deltaTime);
-        }
+        VACImate.velocity = moveVector == Vector3.zero ? VACImate.velocity : vacm.velocity.normalized;
     }
 
     void FixedUpdate()

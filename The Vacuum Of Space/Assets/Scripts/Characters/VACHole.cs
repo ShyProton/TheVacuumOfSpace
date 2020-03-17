@@ -4,43 +4,34 @@ using UnityEngine;
 
 public class VACHole : MonoBehaviour
 {
-    public Animator vacimation;
     public Transform blackHole;
-    public Transform capsuleBase;
-    public Transform vacmHead;
-    public Transform mainCam;
-    public float capsuleRotation = 20f;
+    public LayerMask layerMask;
+    public Color32 highlight;
+
     public float holeStrength = 2000f;
     public float castRadius = 3f;
     public float castDistance = 10f;
-    public LayerMask layerMask;
 
-    private bool mouseClicked;
     private Vector3 castOrigin;
     private Vector3 castDirection;
+    private GameObject affectedObject;
+
+    private bool mouseClicked;
     private float objectDistance;
-    public GameObject affectedObject;
 
     void Update()
     {
         mouseClicked = Input.GetMouseButton(0);
-
-        if (mouseClicked)
-        {
-            vacimation.SetTrigger("MouseClicked");
-            Quaternion capQuat = Quaternion.Slerp(capsuleBase.rotation, mainCam.rotation, capsuleRotation * Time.deltaTime);
-            Quaternion headQuat = Quaternion.Slerp(vacmHead.rotation, mainCam.rotation, VACMovement.headRotation * Time.deltaTime);
-            capsuleBase.rotation = Quaternion.Euler(0, capQuat.eulerAngles.y, 0);
-            vacmHead.rotation = Quaternion.Euler(0, headQuat.eulerAngles.y, 0);
-        } else
-        {
-            vacimation.ResetTrigger("MouseClicked");
-        }
     }
 
     void FixedUpdate()
-    {
-        if(mouseClicked)
+    {   
+        if(affectedObject)
+        {
+            affectedObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        }
+        
+        if (mouseClicked)
         {
             RaycastHit hit;
 
@@ -51,16 +42,20 @@ public class VACHole : MonoBehaviour
             {
                 affectedObject = hit.transform.gameObject;
                 objectDistance = hit.distance;
-            } else
+
+                Debug.Log(objectDistance);
+                if (affectedObject.CompareTag("VACHole"))
+                {
+                    Vector3 forceDirection = blackHole.position - affectedObject.GetComponent<Transform>().position;
+                    affectedObject.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * holeStrength * Time.deltaTime);
+                    affectedObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                    affectedObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", highlight);
+                }
+            }
+            else
             {
                 objectDistance = castDistance;
                 affectedObject = null;
-            }
-
-            if(affectedObject.tag == "VACHole")
-            {
-                Vector3 forceDirection = blackHole.position - affectedObject.GetComponent<Transform>().position;
-                affectedObject.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * holeStrength * Time.deltaTime);
             }
         }
     }
