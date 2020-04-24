@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_GravBeam
+  m_Name: LaserShader
   m_Shader: {fileID: -6465566751694194690, guid: 72eda5ec6e31bf2448cc5db0bd55e117,
     type: 3}
   m_ShaderKeywords: 
@@ -29,10 +29,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_6DEC1CF4: 0.2
     - Vector1_924903CB: 25
     - Vector1_9EF27487: 2
     - Vector1_B037744D: 0.5
     m_Colors:
     - Color_6F7F98F0: {r: 2.5568628, g: 2.5568628, b: 2.5568628, a: 1}
     - Vector2_54F8FF6A: {r: -0.5, g: 0, b: 0, a: 0}
-    - Vector2_C97AC01A: {r: -0.7, g: 0, b: 0, a: 0}
+    - Vector2_C97AC01A: {r: -1, g: 0, b: 0, a: 0}
