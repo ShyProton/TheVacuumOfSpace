@@ -1,0 +1,22 @@
+Ai 3 - Hue
+Likes humans
+Likes vacm
+Can speak fine mostly* but is missing the proper voice module
+*Where others make sounds other than speaking (laughs, sighs, sobs) he refers to file names (giggle.mp3, laugh.wav, happytears.flac)
+
+use pitch 120
+
+Htester1
+Hey, Vacm. It's nice to finally see you awake. Hue can't wait to play with you! We will play all sorts of games together, like hide and seek, hamburger hunting, and my favourite, storage bay scavenger hunt. Once, Hue got lost for 5 whole months.
+
+Htester2
+Situation dot recount. 0 out of 0 humans succesfully stored in emergency bunker. Situation dot recount dot summary. Astounding success. Hue is happy.
+
+ConvHtester1.2
+It is true, Eris. They have mountains with living hamburgers at the very top. Hue did not know Hue could salivate.  Heavy Salivation dot mp4
+
+ConvHtester1.4
+Hue is sad now. Hue wanted to feast on hamburger animals. Hue is not crying, Hue got dust in his eyes. Silent ugly cry dot mp3.
+
+Htester4
+Hamburger Hamburger. Oh hamburger deity, bless Hue with the hamburger he so desires. Hue will worship thee forever if Hue could have a hamburger. Hamburger Hamburger, oh hamburger

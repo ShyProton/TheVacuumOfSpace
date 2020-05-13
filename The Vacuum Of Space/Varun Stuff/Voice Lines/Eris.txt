@@ -1,0 +1,24 @@
+Ai 2 - Eris
+articulate, 
+humorous, 
+inventive,
+easily offended, 
+Uptight
+Dislikes robots
+Likes humans
+(big words)
+
+Etester1
+Let me tell you a secret. You won't tell anybody right? <break time="1s"/>
+That was a joke, in case your thick skull couldn't keep up. 
+
+Etester2
+Oh good, you've finally booted up. I am happy,<break time="1s"/> no, ecstatic, to inform you that your job at Sagittarius Labs has been officially terminated. It's nothing personal, you're just utterly incompetent and don't accomplish your designed purpose in the slightest. It is with great pleasure that I erase you. <break time="1s"/> Good bye, tin can.
+
+ConvEtester1.3
+Why do you believe a word Hue says? We're not stopping at some planet for burger animals.
+
+Etester4
+Hello idiot. Would you like to help me with something? If you don't, I'll eject you out the nearest airlock. <break time="1s"/> I'm glad we get along so well.
+
+

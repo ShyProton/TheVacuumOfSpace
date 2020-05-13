@@ -1,0 +1,29 @@
+ai - Ai 1 - Orion
+Blunt,
+frank, 
+efficient,
+Not as offendable
+Relaxed
+Likes robots
+Dislikes humans
+
+
+Ai 2 - Eris
+articulate, 
+humorous, 
+inventive,
+easily offended, 
+Uptight
+Dislikes robots
+Likes humans
+
+
+Ai 3 - Hue
+Likes humans
+Likes vacm
+Can speak fine mostly* but is missing the proper voice module
+*Where others make sounds other than speaking (laughs, sighs, sobs) he refers to file names (giggle.mp3, laugh.wav, happytears.flac)
+
+
+
+

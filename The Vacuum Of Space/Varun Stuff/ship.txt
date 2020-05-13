@@ -1,0 +1,40 @@
+Flight Deck 
+- Ship fly control area
+-pilot seat
+
+
+2nd floor tbd
+-sport rooms
+-apartments
+-pool
+-cafeteria
+	-kitchen (situated above the engine to power kitchen amenities)
+-communal areas
+-
+
+Research Deck
+-labs
+- bh engine ROOM
+	-viewing areas/research facilities surrounding engine
+-space environment testing facilities
+	-centrifuge
+-offices
+-story rooms
+
+
+
+Machine deck
+-Ship engine room
+	-coolant room
+-crane room (large opening to storage bay)
+-trash compactor
+-Robot repair room
+-closet
+
+Storage Deck
+-secret breaker room
+-escape pod areas
+	- have to build one to leave
+-crates that occupy lots of space
+-area that links to upper crane room (open cieling)
+-

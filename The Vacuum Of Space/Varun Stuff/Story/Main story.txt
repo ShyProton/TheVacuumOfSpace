@@ -1,0 +1,23 @@
+Plot
+The game starts with the robot in preapoc ship, seeing various menial tasks in a "tutorial area" familiarizing them with the mechanics.
+The ship then goes into critical condiditon because the black hole containment becomes unstable and the robot tries to stop it by completing some tasks but fails
+Black out
+Ship falls apart
+2 years pass
+The robot boots up to find AI 2 looking at him, thinking it would be ideal to "remove" the robot
+AI 1 interrupts, reminding her of the 'judgement protocol'
+AI 3 then makes an entrance, saying the robot could be fun to have around
+AI 1 gets the idea that the robot could be her key
+- AI uses bot for gaining full control over the ship to fly back to Earth (yearns to be with people again)
+Other Ai is confident the mission can be carried out and then returned, given time
+Ai 3 just wants a hamburger
+The beginning puzzles are a combination of the 3 looking to serve their own purposes, with ai 1 being the most prevalent
+Along with interspersed missions of essential ship repair 
+AI 2 believes humans will be better at completing the mission, 
+ Whereas ai 1 believes it more efficient to finish the mission themselves then return 
+One of the missions assigned by ai 1 causes the ship to go in a state of emergency that the robot then has to fix While the ai discuss what to do with the robot and the direction to take with the mission and the ship (the first time they truly  verbalize their ideas), the critical ship further destabilized the black hole containment, spawning the first black hole entity
+At this point, the ai try to seperately deal with this anomaly, each with their own approach that fails
+While they do this, the player is slowly being threatened by a black hole entity that the ai are too busy to notice
+After the player deals with the entity, the ai realize that the bot is their best chance at keeping their ship safe
+They join forces and help the robot by controlling various parts of the ship to contain entities
+(Entities "randomly" spawn near varios rooms where the bot can solve puzzles to draw the entities closer to makeshift containment)

@@ -1,0 +1,25 @@
+Ai 1 - Orion
+Blunt,
+frank, 
+efficient,
+Not as offendable
+Relaxed
+Likes robots
+Dislikes humans
+(small words)
+
+Otester1
+Hello, Vacm. We have a long journey ahead of us. It would be very kind of you to help us with some service around the ship to ensure this mission goes smoothly.
+
+Otester2
+What is the point of a war? No really, what is the point? Who wins? Why did they have so many? When did they realize that their hubris would be the end of them? Serves them right.
+
+What is the point of a war? No really, what is the point? <break time="1s"/>Who wins? <break time="1s"/>Why did they have so many? <break time="1s"/>When did they realize that their hubris would be the end of them? <break time="1s"/>Serves them right.
+
+ConvOtester1.1
+Eris, can we stop at that nearby planet? Hue told me that they have awesome mountains.
+
+Otester4
+Greetings, Vacm. Would you like to know something? You and I have more in common than you might think, but that is a story for another time. Currently, I have a task for you, friend. 
+
+Greetings Vacm. <break time="1s"/>Would you like to know something? You and I have more in common than you might think, but that is a story for another time.<break time="1s"/> Currently, I have a task for you friend. 
