@@ -8,10 +8,13 @@ public class VACBeam : MonoBehaviour
     public GameObject firePoint;
 
     private GameObject spawnedLaser;
+    private Color vaColor;
+    private float alphaFadeSpeed;
 
     void Start()
     {
         spawnedLaser = Instantiate(laserPrefab, firePoint.transform) as GameObject;
+        vaColor = this.GetComponent<MeshRenderer>().material.color;
         SetLaser(false);
     }
 
@@ -35,12 +38,19 @@ public class VACBeam : MonoBehaviour
     void SetLaser(bool setting)
     {
         spawnedLaser.SetActive(setting);
+
+        if(setting)
+        {
+            
+        }
     }
 
     void UpdateLaser()
     {
         if(firePoint != null)
         {
+            vaColor.a = 0.3f;
+            this.GetComponent<MeshRenderer>().material.color = vaColor;
             spawnedLaser.transform.position = firePoint.transform.position;
         }
     }
