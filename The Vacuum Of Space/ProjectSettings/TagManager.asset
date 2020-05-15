@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - VACHole
+  - CamFollow
   layers:
   - Default
   - TransparentFX
