@@ -38,7 +38,7 @@ public class VACBeam : MonoBehaviour
     void SetLaser(bool setting)
     {
         spawnedLaser.SetActive(setting);
-        CameraCollision.maxDist = setting ? 4 : 5;
+        CameraCollision.maxDist = setting ? 6 : 5;
         
     }
 
