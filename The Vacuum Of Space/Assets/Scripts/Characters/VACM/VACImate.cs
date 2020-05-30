@@ -11,12 +11,43 @@ public class VACImate : MonoBehaviour
     public Transform capsuleBase;
     public Transform mainCam;
 
+    public static Vector3 inputDir = Vector3.zero;
+
     public float capsuleRotation = 15f;
     public float baseRotation = 20f;
     public float headRotation = 10f;
 
-    public static Vector3 velocity;
+    private void Update()
+    {
+        bool mouseClick = Input.GetMouseButton(0) || Input.GetMouseButton(1);
 
+        Movimation();
+        Gravimation(mouseClick);
+    }
+
+    void Movimation()
+    {
+        Quaternion baseQuaternion = Quaternion.LookRotation(inputDir);
+        vacBase.rotation = Quaternion.Slerp(vacBase.rotation, baseQuaternion, baseRotation * Time.deltaTime);
+        vacHead.rotation = Input.GetMouseButton(0) ? vacHead.rotation : Quaternion.Slerp(vacHead.rotation, baseQuaternion, headRotation * Time.deltaTime);
+    }
+
+    void Gravimation(bool setting)
+    {
+        if (setting)
+        {
+            animControl.SetTrigger("MouseClicked");
+            Quaternion capQuat = Quaternion.Slerp(capsuleBase.rotation, mainCam.rotation, capsuleRotation * Time.deltaTime);
+            Quaternion headQuat = Quaternion.Slerp(vacHead.rotation, mainCam.rotation, headRotation * Time.deltaTime);
+            capsuleBase.rotation = Quaternion.Euler(0, capQuat.eulerAngles.y, 0);
+            vacHead.rotation = Quaternion.Euler(0, headQuat.eulerAngles.y, 0);
+        }
+        else
+        {
+            animControl.ResetTrigger("MouseClicked");
+        }
+    }
+    /*
     void Start()
     {
         velocity = Vector3.zero;
@@ -51,5 +82,5 @@ public class VACImate : MonoBehaviour
         {
             animControl.ResetTrigger("MouseClicked");
         }
-    }
+    }*/
 }
