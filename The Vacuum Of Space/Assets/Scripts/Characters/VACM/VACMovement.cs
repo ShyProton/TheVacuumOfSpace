@@ -16,6 +16,8 @@ public class VACMovement : MonoBehaviour
 
     private int[] userInput = new int[4];
     private string keys = "wasd";
+    
+    
 
     void Start()
     {
